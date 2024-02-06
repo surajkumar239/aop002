@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+        <bean id="stdBean" class="com.durgasoft.bean.Student">
+        <property name="sname" value="Durga" />
+        <property name="squal" value="Btech"/>
+        <property name="semail" value="durga@gmail.com"/>
+        <property name="smobile" value="91-9988776655"/>
+        </bean>
+        <!-- Target -->
+        <bean id="target" class="com.durgasoft.services.InstituteServiceImpl"/>
+        
+        <!-- Advice -->
+        <bean id="advice" class="com.durgasoft.advice.ThanqAdvice"/>
+        
+       
+        
+        <!-- proxy object -->
+        
+         <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target" ref="target"/>
+         <property name="interceptorNames">
+         <list>
+         <value>advice</value>
+         </list>
+        </property>
+         </bean>
+        </beans>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
